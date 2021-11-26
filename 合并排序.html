@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var mergeTwoLists = function(l1, l2) {
+    let l3=[]
+    let ll1=l1.toString().split("->")
+    let ll2=l2.toString().split("->")
+    l3 = ll2.concat(ll1)
+    l3.sort()
+    l3.join("->")
+}
+mergeTwoLists("1->2->4", "1->3->4")
+  </script>
+</body>
+</html>

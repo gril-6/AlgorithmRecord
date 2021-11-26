@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // var obj="as[()}{}"
+    // var c=obj.split("")
+    // var cc=[]
+    // var f=[]
+    // var b=c.forEach(i=>{
+    //   if(i=="("||i=="{"||i=="["){
+    //     cc.push(i)
+    //   }
+    // })
+    // var d=obj.map(i=>{
+    //   if(i=="("){
+    //     var f=cc.filter(i=>{
+    //       return 
+    //     })
+    //   }
+    // })
+
+const map ={
+  "{": "}",
+  "[": "]",
+  "(": ")"
+}
+
+var a = b.split()
+
+function b(b) {
+  let c = []
+  for(var i = 0; i < a.length; i++) {
+    if(i === "{" || i === "[" || i === "(" ) {
+      c.push(a[i])
+    }else if(i <= c.length - 1 || map[c[c.length - 1]] !== a[i]) {
+      return false
+    }else {
+      c.pop()
+    }
+  }
+ return c.length === 0
+}
+
+
+
+
+
+    const map = {
+    '(' : ')',
+    '[' : ']',
+    '{' : '}'
+}
+
+var isValid = function(s) {
+    let stack = [];
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] === '(' || s[i] === '[' || s[i] === '{') {
+            stack.push(s[i]);
+        } else if (stack.length - 1 < 0 || map[stack[stack.length - 1]] !== s[i]) {
+            return false;
+        } else {
+            stack.pop();
+        }
+    };
+    return stack.length === 0;
+};
+
+  </script>
+</body>
+
+</html>

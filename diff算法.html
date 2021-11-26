@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        虚拟DOM: 是一个对象,一个用来表示真实DOM的对象,
+        虚拟DOM比真实DOM快错的,或者不严谨,
+        虚拟DOM算法操作真实DOM,性能高于直接操作真实DOM,虚拟DOM和虚拟DOM算法是两种概念
+        虚拟DOM算法 = 虚拟DOM + Diff算法
+        Diff算法就是一种对比算法, 对比就虚拟DOM和新虚拟DOM, 对比那个虚拟急待你更改了,找出虚拟节点,只更新这个节点
+        实现精准更新真实DOM,进而提高效率
+        使用虚拟DOM算法的损耗计算： 总损耗 = 虚拟DOM增删改+（与Diff算法效率有关）真实DOM差异增删改+（较少的节点）排版与重绘
+        直接操作真实DOM的损耗计算： 总损耗 = 真实DOM完全增删改+（可能较多的节点）排版与重绘
+        */
+
+        /*
+        新旧虚拟DOM比对,只会同级比较,所以是深度优先算法, 复杂度O(n)
+        当数据改变时,会触发setter,并且通过Dep.notifiy去通知所有订阅者,订阅者会调用patch方法, 给真实DOM打补丁,更新相应视图
+        */
+
+        /*
+        patch:对比当前同层的虚拟节点是否为同一种类型标签
+        是:继续执行patchVnode方法进行深层对比
+        否:没必要对比了,直接整个节点替换成新虚拟节点
+        */
+    </script>
+</body>
+
+</html>

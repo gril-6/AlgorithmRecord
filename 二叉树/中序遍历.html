@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 递归
+        function v(root, res = []) {
+            if (!root) return res
+            v(root.left, res)
+            res.push(root.val)
+            v(root.right, res)
+            return res
+        }
+        // 迭代
+        const res = []
+        const stack = []
+        const cur = root
+        while (stack.lenght || cur) {
+            if (cur) {
+                stack.push(cur)
+                cur = cur.left
+            } else {
+                cur = stack.pop()
+                res.push(cur.val)
+                cur = right
+            }
+        }
+        return res
+    </script>
+</body>
+
+</html>

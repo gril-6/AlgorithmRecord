@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 最长公共前后缀， 
+        // 如：
+        // 下面以”ABCDABD”为例，进行介绍：
+        // ”A”的前缀和后缀都为空集，共有元素的长度为0；
+        // ”AB”的前缀为[A]，后缀为[B]，共有元素的长度为0；
+        // ”ABC”的前缀为[A, AB]，后缀为[BC, C]，共有元素的长度0；
+        // ”ABCD”的前缀为[A, AB, ABC]，后缀为[BCD, CD, D]，共有元素的长度为0；
+        // ”ABCDA”的前缀为[A, AB, ABC, ABCD]，后缀为[BCDA, CDA, DA, A]，共有元素为”A”，长度为1；
+        // ”ABCDAB”的前缀为[A, AB, ABC, ABCD, ABCDA]，后缀为[BCDAB, CDAB, DAB, AB, B]，共有元素为”AB”，长度为2；
+        // ”ABCDABD”的前缀为[A, AB, ABC, ABCD, ABCDA, ABCDAB]，后缀为[BCDABD, CDABD, DABD, ABD, BD, D]，共有元素的长度为0。
+        // [A B C D A B C]
+        // [0 0 0 0 1 2 0] 前缀表1
+        // [-1 0 0 0 0 1 2] 前缀表2 下标0为-1整体后移一位
+        // [-1 -1 -1 -1 0 1 -1] 前缀表3 全部减一
+
+
+        // let partern = 'ABABCABAA'.split("")
+        // let prefix = new Array(9).fill(0)
+        // console.log(partern, prefix);
+
+
+        // // 求前缀表1
+        // // parter:原始字符串, prefix:生成的前缀表，n:长度
+        // function pre(partern, prefix, n) {
+        //     prefix[0] = 0
+        //     let len = 0
+        //     let i = 1
+        //     while (i < n) {
+        //         if (partern[i] == partern[len]) {
+        //             len++
+        //             prefix[i] = len
+        //             i++
+        //         } else {
+        //             if (len > 0) {
+        //                 len = prefix[len - 1]
+        //             } else {
+        //                 prefix[i] = len
+        //                 i++
+        //             }
+        //         }
+        //     }
+        //     return prefix
+        // }
+        // // 前缀表prefix成功
+        // console.log(pre(partern, prefix, 9));
+
+
+        // 求前缀表2
+        let partern = 'ABABCABAA'.split("")
+        let prefix = new Array(9).fill(0)
+
+        function pre(partern, prefix, n) {
+            prefix[0] = 0
+            let len = 0
+            let i = 1
+            while (i < n) {
+                if (partern[i] == partern[len]) {
+                    len++
+                    prefix[i] = len
+                    i++
+                } else {
+                    if (len > 0) {
+                        len = prefix[len - 1]
+                    } else {
+                        prefix[i] = len
+                        i++
+                    }
+                }
+            }
+            return prefix
+        }
+        prefix = pre(partern, prefix, 9)
+
+        function pre2(prefix, n) {
+            for (let i = n - 1; i > 0; i--) {
+                prefix[i] = prefix[i - 1]
+            }
+            prefix[0] = -1
+            return prefix
+        }
+        // 前缀表prefix成功
+        // 字符串匹配
+        prefix = pre2(prefix, 9)
+
+        let text = 'ABABABABCABAAB'.split("") //长度为m
+        // partern 需要匹配的字符ABABCABAA 长度为n
+        let count = 0
+
+        function kmpsearch(text, partern) {
+            let m = text.length
+            let n = partern.length
+            let i = 0,
+                j = 0
+            while (i < m) {
+                if (j == n - 1 && text[i] == partern[j]) {
+                    j = prefix[j]
+                    count++
+                }
+                if (text[i] == partern[j]) {
+                    i++
+                    j++
+                } else {
+                    j = prefix[j]
+                    if (j == -1) {
+                        i++
+                        j++
+                    }
+                }
+            }
+            return count
+        }
+        console.log(kmpsearch(text, partern));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 迭代
+        if (!root) return []
+        let stack = [root]
+        let str = null
+        let res = []
+        while (stack.length) {
+            str = stack.pop()
+            res.push(str.val)
+            str.right && stack.push(str.right)
+            str.left && stack.push(str.left)
+        }
+        return res
+        // 递归
+        function v(root, res) {
+            if (!root) return res;
+            res.push(root.val);
+            v(root.left, res)
+            v(root.right, res)
+            return res
+        }
+        return v(root)
+    </script>
+</body>
+
+</html>

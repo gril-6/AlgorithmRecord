@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let arr = [2, 8, 3, 19, 12, 4, 6]
+
+    
+    // 方法一
+    // arr.sort()
+
+    // 方法二
+    // 冒泡排序
+    // for(var i = 0; i < arr.length; i++) {
+    //   for(var j = 0; j < arr.length-i; j++) {
+    //     if(arr[j]<arr[j-1]) {
+    //       var temp = arr[j]
+    //           arr[j] = arr[j-1]
+    //           arr[j-1] = temp
+    //     }
+    //   }
+    // }
+    // console.log(arr)
+
+    // 方法三
+    // 选择排序
+    
+    for(var i = 0; i < arr.length; i++) {
+      var temp = i
+      for(var j = i; j < arr.length; j++) {
+        if(arr[temp]>arr[j]) {
+          temp = j
+        }
+      }
+      var ten = arr[i]
+          arr[i]  = arr[temp]
+          arr[temp] = ten
+    }
+    console.log(arr)
+
+    // 快速排序
+    // 首先选取一个基准
+    // 通过这个基准，所有比基准小的放在前面，比基准大的放在后面
+    // 在这个分区退出之后，
+    // 该基准就处于数列的中间位置。这个称为分区（partition）操作
+    // 把小于基准值元素的子数列和大于基准值元素的子数列排序
+  </script>
+</body>
+</html>
