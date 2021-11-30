@@ -1,0 +1,40 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: hanjing
+ * @Date: 2021-11-30 15:47:48
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-11-30 19:50:34
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 电梯第一个人进来后，等待15秒。如果过程又有人进来，15秒等待重新计时，直到15秒后开始运送
+        /**
+         * @description: n秒后执行该事件，若n秒内被重复触发，重新计时
+         * @param {*} func
+         * @param {*} wait
+         * @return {*}
+         */
+        function debounce(func, wait) {
+            let timeout
+            return function () {
+                if (timeout) clearTimeout(timeout)
+                timeout = setTimeout(() => {
+                    func()
+                }, 1000)
+            }
+        }
+    </script>
+</body>
+
+</html>
