@@ -1,0 +1,68 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: hanjing
+ * @Date: 2021-12-01 11:35:17
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-12-01 14:07:35
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class EventEmitter {
+            constructor() {
+                this.cache = {}
+            }
+            on(name, fn) {
+                if (this.cache[name]) {
+                    this.cache[name].push(fn)
+                } else {
+                    this.cache[name] = [fn]
+                }
+            }
+            off(name, fn) {
+                let tasks = this.cache[name]
+                if (tasks) {
+                    //findIndex 返回数组中满足提供测试函数的第一个元素的索引。若没有返回-1
+                    const index = tasks.findIndex(f => f === fn || f.callback === fn)
+                    if (index >= 0) {
+                        tasks.splice(index, 1)
+                    }
+                }
+            }
+            emit(name, once = false, ...args) {
+                if (this.cache[name]) {
+                    let tasks = this.cache[name].slice()
+                    for (const fn of tasks) {
+                        fn(...args)
+                    }
+                    if (once) {
+                        delete this.cache[name]
+                    }
+                }
+            }
+        }
+        let eventBus = new EventEmitter()
+        let fn1 = function (name, age) {
+            console.log(`${name} ${age}`)
+        }
+        let fn2 = function (name, age) {
+            console.log(`hello, ${name} ${age}`)
+        }
+        eventBus.on('aaa', fn1)
+        eventBus.on('aaa', fn2) //添加事件
+        eventBus.off('aaa', fn1) //取消事件
+        eventBus.emit('aaa', false, '布兰', 12)
+    </script>
+</body>
+
+</html>
