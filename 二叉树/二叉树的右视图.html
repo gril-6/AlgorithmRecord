@@ -1,0 +1,43 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: hanjing
+ * @Date: 2021-12-06 16:56:58
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-12-06 17:23:21
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 给定一个二叉树的 根节点 root，想象自己站在它的右侧，
+        // 按照从顶部到底部的顺序，返回从右侧所能看到的节点值
+        function v(root) {
+            const res = [],
+                queue = []
+            queue.push(root)
+            while (queue.length && root !== null) {
+                let len = queue.length
+                while (len--) {
+                    let node = queue.shift()
+                    if (!length) {
+                        res.push(node.val)
+                    }
+                    node.left && queue.push(node.left)
+                    node.right && queue.push(node.right)
+                }
+            }
+            return res
+        }
+    </script>
+</body>
+
+</html>

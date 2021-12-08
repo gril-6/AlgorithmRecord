@@ -1,0 +1,42 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: hanjing
+ * @Date: 2021-12-07 15:39:24
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-12-07 15:57:13
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 给定一棵二叉树的根节点 root ，请找出该二叉树中每一层的最大值
+        function v(root) {
+            const res = [],
+                queue = []
+            queue.push(root)
+            while (root && queue.length) {
+                let level = queue[0].val
+                let len = queue.length
+                while (len--) {
+                    let node = queue.shift()
+                    if (level < node.val) level = node.val
+                    node.left && queue.push(node.left)
+                    node.right && queue.push(node.right)
+                }
+                res.push(level)
+            }
+            return res
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: hanjing
+ * @Date: 2021-12-07 15:30:35
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-12-07 15:35:35
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 给定一个 N 叉树， 返回其节点值的层序遍历。（ 即从左到右， 逐层遍历）。
+        // 树的序列化输入是用层序遍历， 每组子节点都由 null 值分隔（ 参见示例）
+        function v(root) {
+            const res = [],
+                queue = []
+            queue.push(root)
+            while (root && queue.length) {
+                const level = []
+                let len = queue.length
+                while (len--) {
+                    let node = queue.shift()
+                    level.push(node.val)
+                    for (let item of node.children) {
+                        item && queue.push(item)
+                    }
+                }
+                res.push(level)
+            }
+            return res
+        }
+    </script>
+</body>
+
+</html>

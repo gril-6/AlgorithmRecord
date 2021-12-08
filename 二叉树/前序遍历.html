@@ -1,3 +1,11 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: hanjing
+ * @Date: 2021-11-22 15:45:51
+ * @LastEditors: 
+ * @LastEditTime: 2021-12-06 14:24:22
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +31,7 @@
         }
         return res
         // 递归
-        function v(root, res) {
+        function v(root, res = []) {
             if (!root) return res;
             res.push(root.val);
             v(root.left, res)

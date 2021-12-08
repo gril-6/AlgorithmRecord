@@ -1,0 +1,47 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: hanjing
+ * @Date: 2021-12-07 15:20:22
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-12-07 15:21:23
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 给定一个非空二叉树, 返回一个由每层节点平均值组成的数组
+        function averageOfLevels(root) {
+            const res = [],
+                queue = []
+            queue.push(root)
+            while (root && queue.length !== 0) {
+                const level = []
+                let num = 0
+                let len = queue.length
+                let count = 0
+                while (len--) {
+                    count++
+                    let node = queue.shift()
+                    level.push(node.val)
+                    num += node.val
+                    node.left && queue.push(node.left)
+                    node.right && queue.push(node.right)
+                }
+                console.log(queue.length)
+                res.push(num / count)
+            }
+            return res
+        };
+    </script>
+</body>
+
+</html>
