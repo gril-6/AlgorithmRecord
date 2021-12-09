@@ -1,0 +1,36 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: hanjing
+ * @Date: 2021-12-08 16:15:17
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-12-08 16:35:47
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  给定一个二叉树，找出其最大深度。
+        // 二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。
+        // 说明: 叶子节点是指没有子节点的节点。
+        function v(root) {
+            if (!root) {
+                return 0;
+            } else {
+                const left = maxDepth(root.left);
+                const right = maxDepth(root.right);
+                return Math.max(left, right) + 1;
+            }
+        }
+    </script>
+</body>
+
+</html>
