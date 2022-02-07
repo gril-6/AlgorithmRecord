@@ -1,0 +1,89 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: hanjing
+ * @Date: 2022-01-01 12:52:01
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-01-02 15:33:14
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        上传文件 ： <input type="file" name="file" id="fileId" />
+        <img src="" alt="" id='img'>
+        <button type="submit" name="btn" value="提交" id="btnId" onclick="check()" />
+        <button type="submit" onclick="download()"></button>
+    </div>
+</body>
+<script>
+    const url = null
+    const name = null
+
+    function check() {
+        const objFile = document.getElementById('fileId')
+        const objimg = document.getElementById('img')
+        const file = objFile.files[0]
+        const formdata = new FormData()
+        formdata.append("file", file);
+        const requestOptions = {
+            method: 'POST',
+            body: formdata,
+            redirect: 'follow'
+        };
+        fetch("http://localhost:2000/upload", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                // url = result
+                // name = url.lastIndexOf('/')
+                objimg.src = result
+                const name = result.substring(result.lastIndexOf('/'))
+                download(result)
+            })
+            .catch(error => console.log('error', error));
+    }
+
+    function download(url) {
+        // fetch(url, {
+        //     method: 'GET',
+        //     responseType: 'blob'
+        // }).then(response => response.text()).then(e => {
+        //     var url = window.URL.createObjectURL(result)
+        //     var a = document.createElement('a');
+        //     a.href = url
+        //     a.download = ''
+        //     a.click()
+        // })
+        // var x = new XMLHttpRequest();
+        // x.open("GET", url, true);
+        // x.responseType = 'blob';
+        // x.onload = function (e) {
+        //     var url = window.URL.createObjectURL(x.response)
+        //     var a = document.createElement('a');
+        //     a.href = url
+        //     a.download = ''
+        //     a.click()
+        // }
+        // x.send();
+        // var element = document.createElement('a');
+        // element.setAttribute('href', url);
+        // element.setAttribute('download', name);
+
+        // // element.style.display = 'none';
+        // document.body.appendChild(element);
+
+        // element.click();
+
+        // document.body.removeChild(element);
+    }
+</script>
+
+</html
