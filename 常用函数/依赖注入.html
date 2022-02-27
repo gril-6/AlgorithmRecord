@@ -1,0 +1,33 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: hanjing
+ * @Date: 2022-02-24 13:42:25
+ * @LastEditors: 
+ * @LastEditTime: 2022-02-24 13:42:58
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class B {}
+        class A {
+            constructor() {
+                console.log(b);
+            }
+        }
+        const b = new B();
+        // 将B的实例注入到a中
+        const a = new A(b);
+    </script>
+</body>
+
+</html>
