@@ -210,18 +210,34 @@
         // all方法 获取所有promise,都执行then,把结果放到数组中，一起返回,一个失败就返回失败
         myPromise.all = function (promises) {
             let arr = []
-            let i = 0
+            let cur = 0
 
             function processData(index, data) {
                 arr[index] = data
-                i++
-                if (i == promises.length) resolve(arr)
+                cur++
+                if (cur === promises.length) resolve(arr)
             }
             return new myPromise((resolve, reject) => {
                 for (let i = 0; i < promises.length; i++) {
                     promises[i].then(data => {
                         processData(i, data)
                     }, reject)
+                }
+            })
+        }
+        myPromise.all = function (prmises) {
+            let arr = []
+            let cur = 0
+            return new Promise((resolve, reject) => {
+                if (!Array.isArray(prmises)) {
+                    throw Error('传入不是数组')
+                }
+                for (let i = 0; i < promises.length; i++) {
+                    Promise.resolve(promises[i]).then((res) => {
+                        cur++
+                        arr.push(res)
+                        if (cur === arr.length) resolve(arr)
+                    })
                 }
             })
         }
