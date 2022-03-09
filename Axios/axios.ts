@@ -4,7 +4,7 @@
  * @Author: hanjing
  * @Date: 2021-12-02 14:41:04
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-12-02 17:28:08
+ * @LastEditTime: 2022-03-07 17:53:40
  */
 import axios from 'axios'
 // 等待请求
@@ -43,6 +43,7 @@ function myAxios(axiosConfig: any, customOptions: any) {
     },
     (error) => Promise.reject(error)
   )
+  // 响应拦截
   service.interceptors.response.use(
     (response) => {
       removePending(response.config)

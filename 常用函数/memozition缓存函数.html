@@ -1,3 +1,11 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: hanjing
+ * @Date: 2021-11-25 11:23:03
+ * @LastEditors: 
+ * @LastEditTime: 2022-03-07 18:04:48
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,7 +49,6 @@
             return n < 2 ? n : fibonacci(n - 1) + fibonacci(n - 2)
         }
         // 使用缓存函数会少执行次数
-
         console.log(memoize(fibonacci)(10));;
         console.log(fibonacci(10));
     </script>
