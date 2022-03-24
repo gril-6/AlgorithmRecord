@@ -3,8 +3,8 @@
  * @version: 
  * @Author: hanjing
  * @Date: 2021-11-22 15:45:51
- * @LastEditors: 
- * @LastEditTime: 2021-12-06 14:24:22
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-03-24 16:30:14
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -26,8 +26,8 @@
         while (stack.length) {
             str = stack.pop()
             res.push(str.val)
-            str.right && stack.push(str.right)
             str.left && stack.push(str.left)
+            str.right && stack.push(str.right)
         }
         return res
         // 递归
