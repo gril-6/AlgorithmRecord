@@ -4,14 +4,14 @@
  * @Author: hanjing
  * @Date: 2021-12-08 14:25:31
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-03-24 16:34:26
+ * @LastEditTime: 2022-03-24 16:39:26
  */
-// 构造两颗一模一样的树,递归
 
+// 构造两颗一模一样的树,递归
 const checkRecursion = (p, q) => {
     if (!p && !q) return true
     if (!p || !q) return false
-    return p.val === q.val && check(p.left, q.rigth) && check(p.rigth, p.left)
+    return p.val === q.val && checkRecursion(p.left, q.rigth) && checkRecursion(p.rigth, p.left)
 }
 // 迭代
 const checkIterate = (u, v) => {
