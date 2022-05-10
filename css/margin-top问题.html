@@ -1,0 +1,48 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: hanjing
+ * @Date: 2022-05-10 14:13:39
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-05-10 14:21:18
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 500px;
+            background-color: aqua;
+            overflow: hidden;
+        }
+
+        .box1 {
+            width: 200px;
+            height: 200px;
+            margin-top: 50px;
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="box1"></div>
+    </div>
+    <script>
+        //当第一个块级子元素设置margin-top时，子元素跟着下来了
+        // 解决 ：
+        // 直接给父元素加 overflow：hidden
+        // 父元素或者子元素浮动
+        // 给父元素叫boder:1px solid transparent
+        // 给父元素加padding-top:1px
+    </script>
+</body>
+
+</html>

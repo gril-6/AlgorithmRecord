@@ -1,0 +1,43 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: hanjing
+ * @Date: 2022-05-10 11:34:02
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-05-10 14:27:07
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高度塌陷</title>
+    <style>
+        .parent:after {
+            /* 设置添加子元素的内容是空 */
+            content: '';
+            /* 设置添加子元素为块级元素 */
+            display: block;
+            /* 设置添加的子元素的高度0 */
+            height: 0;
+            /* 设置添加子元素看不见 */
+            visibility: hidden;
+            /* 设置clear：both */
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // 子元素浮动，父元素高度坍塌，
+        // 解决
+        // 父元素没有设置高度
+        // 父元素设置overflow：hidden
+        // 父元素添加伪类清除浮动
+    </script>
+</body>
+
+</html>
