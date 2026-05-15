@@ -1,11 +1,244 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>韩静 - 前端开发工程师 | 简历</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#F687B3',
+            secondary: '#81E6D9',
+            light: '#FFF5F7',
+            dark: '#2D3748'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .text-gradient {
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        background-image: linear-gradient(90deg, #F687B3, #81E6D9);
+      }
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 20px rgba(246, 135, 179, 0.15);
+      }
+      .bg-gradient-sweet {
+        background: linear-gradient(135deg, #FFF5F7 0%, #E6FFFA 100%);
+      }
+      .border-gradient {
+        border-image: linear-gradient(90deg, #F687B3, #81E6D9) 1;
+      }
+    }
+  </style>
 </head>
-<body>
-    <div>hello word</div>
+<body class="bg-gradient-sweet text-dark min-h-screen">
+  <!-- 粒子背景 -->
+  <div id="particles" class="fixed top-0 left-0 w-full h-full -z-10"></div>
+
+  <!-- 导航栏 -->
+  <nav class="sticky top-0 z-50 backdrop-blur-md bg-white/70 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+      <h1 class="text-xl font-bold text-gradient">韩静 · 前端开发</h1>
+      <div class="flex gap-5">
+        <a href="#about" class="hover:text-primary transition">关于我</a>
+        <a href="#skills" class="hover:text-primary transition">技能</a>
+        <a href="#experience" class="hover:text-primary transition">经历</a>
+        <a href="#projects" class="hover:text-primary transition">项目</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 头部 -->
+  <header class="max-w-6xl mx-auto px-4 pt-20 pb-12 text-center">
+    <div class="w-28 h-28 rounded-full bg-gradient-to-tr from-primary to-secondary mx-auto flex items-center justify-center text-white text-4xl font-bold mb-6">
+      HJ
+    </div>
+    <h1 class="text-4xl md:text-5xl font-bold mb-3" id="title">韩静</h1>
+    <p class="text-xl text-gray-600 mb-6" id="typer"></p>
+    <div class="flex justify-center gap-4 text-lg">
+      <a href="tel:13038121390" class="text-primary hover:text-secondary transition"><i class="fa fa-phone mr-1"></i> 13038121390</a>
+      <a href="mailto:1592418872@qq.com" class="text-primary hover:text-secondary transition"><i class="fa fa-envelope mr-1"></i> 1592418872@qq.com</a>
+    </div>
+    <p class="text-gray-500 mt-2"><i class="fa fa-map-marker mr-1"></i> 四川 · 成都</p>
+  </header>
+
+  <!-- 关于我 -->
+  <section id="about" class="max-w-6xl mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold mb-8 text-gradient text-center">关于我</h2>
+    <div class="bg-white rounded-2xl p-8 shadow-md card-hover">
+      <p class="leading-relaxed text-lg">
+        6年前端开发经验，4年大厂驻场前端经验，长期负责海外千万级用户商业化产品，深耕出海前端、混合开发、内嵌H5、跨端通信、营销体系、配置化架构。熟练 Vue3 技术栈、前端工程化、原生混合开发、多端兼容适配。具备独立从需求评审、技术方案设计、编码落地、性能优化、线上迭代、技术复盘全流程能力。主导搭建AB灰度实验、自定义可视化主页、Native通信协议、图片AI解析导出等复杂业务。
+      </p>
+    </div>
+  </section>
+
+  <!-- 技能 -->
+  <section id="skills" class="max-w-6xl mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold mb-8 text-gradient text-center">专业技能</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-white rounded-2xl p-6 shadow-md card-hover">
+        <h3 class="text-xl font-semibold mb-4 text-primary"><i class="fa fa-code mr-2"></i>前端基础</h3>
+        <p>HTML5、CSS3、ES6+、TypeScript、Flex/Grid、动画渲染、移动端适配、兼容处理</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 shadow-md card-hover">
+        <h3 class="text-xl font-semibold mb-4 text-primary"><i class="fa fa-cubes mr-2"></i>框架技术</h3>
+        <p>Vue3全家桶、Pinia、VueRouter、Axios、组件封装、权限架构、状态管理</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 shadow-md card-hover">
+        <h3 class="text-xl font-semibold mb-4 text-primary"><i class="fa fa-mobile mr-2"></i>混合开发</h3>
+        <p>App内嵌H5、iOS/Android原生通信、协议封装、回调拦截、离线包打包、端内数据透传</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 shadow-md card-hover">
+        <h3 class="text-xl font-semibold mb-4 text-primary"><i class="fa fa-cogs mr-2"></i>工程化能力</h3>
+        <p>Git、Shell脚本、CI/CD、自动化部署、Docker、静态资源优化、打包压缩</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 工作经历 -->
+  <section id="experience" class="max-w-6xl mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold mb-8 text-gradient text-center">工作经历</h2>
+    
+    <div class="border-l-4 border-primary pl-6 space-y-8">
+      <div class="bg-white rounded-2xl p-6 shadow-md card-hover">
+        <h3 class="text-xl font-bold">百度（驻场）| 前端开发工程师（出海网盘FE）</h3>
+        <p class="text-gray-500">2022.10 - 至今 | 成都</p>
+        <ul class="mt-3 list-disc pl-5 space-y-1 text-gray-700">
+          <li>负责海外千万级产品 TeraBox 全系前端业务迭代</li>
+          <li>主导站长生态、内嵌混合H5、营销商业化、离线包工程化建设</li>
+          <li>搭建AB灰度实验体系、自定义可视化主页、无代码搭建</li>
+          <li>设计H5与iOS/Android双端通信协议，实现AI图片解析导出</li>
+        </ul>
+      </div>
+
+      <div class="bg-white rounded-2xl p-6 shadow-md card-hover">
+        <h3 class="text-xl font-bold">火花思维 | 前端开发工程师（游戏课件方向）</h3>
+        <p class="text-gray-500">2021.07 - 2022.09 | 成都</p>
+        <ul class="mt-3 list-disc pl-5 space-y-1 text-gray-700">
+          <li>基于 Cocos Creator + TypeScript 开发教育互动课件游戏</li>
+          <li>封装动画、物理、交互通用组件，提升项目复用率</li>
+        </ul>
+      </div>
+
+      <div class="bg-white rounded-2xl p-6 shadow-md card-hover">
+        <h3 class="text-xl font-bold">重庆信科通信 | 前端开发实习生</h3>
+        <p class="text-gray-500">2020.01 - 2021.07 | 重庆</p>
+        <ul class="mt-3 list-disc pl-5 space-y-1 text-gray-700">
+          <li>基于Vue2开发企业级CRM、发票管理系统</li>
+          <li>完成数据看板、表单、批量编辑、无限滚动优化</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 项目经历 -->
+  <section id="projects" class="max-w-6xl mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold mb-8 text-gradient text-center">项目经历</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-white rounded-2xl p-6 shadow-md card-hover">
+        <h3 class="text-xl font-bold text-primary">TeraBox 站长商业化平台</h3>
+        <p class="text-gray-500 mt-1">海外流量变现平台 | 百万级站长</p>
+        <p class="mt-3">Vue3 + Pinia + Axios，负责提现、分润、裂变、口令拉新、AB实验、配置化主页。</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 shadow-md card-hover">
+        <h3 class="text-xl font-bold text-primary">TeraScan AI图片文档工具</h3>
+        <p class="text-gray-500 mt-1">内嵌H5 + AI识别 + Office导出</p>
+        <p class="mt-3">自研Native-H5通信协议，拍照→AI识别→结构化渲染→Word/Excel导出。</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 shadow-md card-hover">
+        <h3 class="text-xl font-bold text-primary">海外多语言官网 & 导流站</h3>
+        <p class="text-gray-500 mt-1">多语言、SEO、广告变现、Docker部署</p>
+        <p class="mt-3">Vue3+i18n，自适应Web/WAP，GA统计，海外自动化部署。</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 shadow-md card-hover">
+        <h3 class="text-xl font-bold text-primary">教育游戏互动课件</h3>
+        <p class="text-gray-500 mt-1">Cocos Creator + TS</p>
+        <p class="mt-3">搭建通用架构，封装组件，Node自动化脚本优化资源与打包。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 教育 -->
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold mb-8 text-gradient text-center">教育经历</h2>
+    <div class="bg-white rounded-2xl p-6 shadow-md card-hover text-center">
+      <h3 class="text-xl font-bold">成都理工大学工程技术学院 | 软件工程 | 本科</h3>
+      <p class="text-gray-500 mt-2">2017.09 - 2021.06</p>
+      <p class="mt-3">班级团支书、互联网+创新创业大赛二等奖、优秀学生干部</p>
+    </div>
+  </section>
+
+  <!-- 底部 -->
+  <footer class="py-8 text-center text-gray-500">
+    <p>© 2025 韩静 | 前端开发工程师 | 期待与您合作</p>
+  </footer>
+
+  <!-- 交互脚本 -->
+  <script>
+    // 打字机效果
+    const typer = document.getElementById('typer');
+    const text = "6年前端开发｜出海商业化｜混合开发｜Vue3｜工程化";
+    let index = 0;
+    function type() {
+      if (index < text.length) {
+        typer.innerHTML += text.charAt(index);
+        index++;
+        setTimeout(type, 80);
+      }
+    }
+    window.onload = () => {
+      type();
+    };
+
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(anchor.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // 极简粒子动效
+    const particles = document.getElementById('particles');
+    for (let i = 0; i < 50; i++) {
+      let dot = document.createElement('div');
+      dot.className = 'absolute rounded-full opacity-20';
+      dot.style.width = dot.style.height = Math.random() * 8 + 4 + 'px';
+      dot.style.background = i % 2 === 0 ? '#F687B3' : '#81E6D9';
+      dot.style.left = Math.random() * 100 + '%';
+      dot.style.top = Math.random() * 100 + '%';
+      dot.style.animation = `float ${Math.random() * 10 + 10}s linear infinite`;
+      particles.appendChild(dot);
+    }
+
+    // 粒子浮动动画
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @keyframes float {
+        0% { transform: translateY(0) translateX(0); }
+        50% { transform: translateY(-20px) translateX(10px); }
+        100% { transform: translateY(0) translateX(0); }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
 </body>
 </html>
